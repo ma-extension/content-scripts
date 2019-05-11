@@ -16,7 +16,7 @@ const CLOUD_READERS = [
     {
         name: 'manga-livre',
         hostname: 'mangalivre.com',
-        regex_expression: /https:\/\/mangalivre\.com\/manga\/(?<manga>[a-zA-Z0-9\-\_\%]*)\/[0-9]*/(?<cap>[a-zA-Z0-9\-\_\%]*)#(?<page>[0-9]*)$/,
+        regex_expression: /https:\/\/mangalivre\.com\/manga\/(?<manga>[a-zA-Z0-9\-\_\%]*)\/[0-9]*\/(?<cap>[a-zA-Z0-9\-\_\%]*)#(?<page>[a-zA-Z0-9\-\_\%]*)$/,
         icon: 'https://mangalivre.com/assets/images/favicon.png'
     }
 ]
