@@ -1,0 +1,24 @@
+{
+    "name": "Mangás Manager Quasar",
+    "version": "1.0",
+    "description": "Gerencie seus mangás sabendo onde parou de ler e quando lançaram novos capítulos",
+    "permissions": ["storage", "<all_urls>", "activeTab"],
+    "browser_action": {
+        "default_popup": "index.html"
+    },
+    "content_scripts": [
+        {
+            "matches": ["http://*/*", "https://*/*"],
+            "js": ["historyReaders.js"],
+            "run_at": "document_end",
+            "all_frames": true
+        }
+    ],
+    "browser_specific_settings": {
+        "gecko": {
+          "id": "ma-extension@github.io",
+          "strict_min_version": "42.0"
+        }
+    },
+    "manifest_version": 2
+}

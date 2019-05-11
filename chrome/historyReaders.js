@@ -14,14 +14,17 @@
 const READERS = [
     {
         name: 'onepiece-ex',
-        hostname: "onepiece-ex.com.br",
-        regex_expression: /https:\/\/onepiece-ex\.com\.br\/mangas\/leitor\/(?<cap>[a-zA-Z0-9\-\_\%]*)\/#(?<page>[0-9]*)/,
-        exclusive_for: 'One Piece'
+        hostname: 'onepieceex.net',
+        regex_expression: /https:\/\/onepieceex\.net\/mangas\/leitor\/(?<cap>[a-zA-Z0-9\-\_\%]*)\/#(?<page>[0-9]*)/,
+        exclusive_for: 'One Piece',
+        icon: 'https://onepieceex.net/favicon/favicon-32x32.png'
+
     },
     {
         name: 'central-de-mangas',
-        hostname: "cdmnet.com.br",
+        hostname: 'cdmnet.com.br',
         regex_expression: /http:\/\/cdmnet\.com\.br\/titulos\/(?<manga>[a-zA-Z0-9\-\_\%]*)\/manga\/ler-online\/(?<cap>[a-zA-Z0-9\-\_\%]*)#(?<page>[0-9]*)$/,
+        icon: 'http://cdmnet.com.br/favicon.ico'
     }
 ]
 
@@ -96,6 +99,7 @@ function addHistoryReadersInlocalStorage () {
         {
             reader: reader.name,
             hostname: reader.hostname,
+            icon: reader.icon,
             mangas: [
                 {
                     name: manga_infos.manga,
@@ -103,9 +107,11 @@ function addHistoryReadersInlocalStorage () {
                         {
                             cap: manga_infos.cap,
                             page: manga_infos.page,
-                            url: location.href
+                            url: location.href,
+                            date_read: Date()
                         }
-                    ]
+                    ],
+                    date_read: Date()
                 }
             ]
         }
@@ -126,7 +132,7 @@ function addHistoryReadersInlocalStorage () {
                     if the reader is not in storage, add them using the prototype history object,
                     if is, just update the last page read.     
                     */
-                   isReaderFound = true
+                    isReaderFound = true
                     console.log('ATUALIZANDO HISTORICO')
                     history_readers[index] = updateReaderHistory(history_readers[index], manga_history[0].mangas[0])
                 }
