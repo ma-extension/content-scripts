@@ -1,4 +1,4 @@
-const CLOUD_READERS = [
+var CLOUD_READERS = [
     {
         name: 'onepiece-ex',
         hostname: 'onepieceex.net',
